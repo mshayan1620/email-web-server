@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Inbox</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Email Web Server</h1>
+        <div>
+            <a href="{{ url_for('index') }}">Inbox</a>
+            <a href="{{ url_for('compose') }}">Compose</a>
+        </div>
+    </div>
+
+    <div class="inbox">
+        <h2>Inbox</h2>
+        {% if emails|length == 0 %}
+            <p>No emails yet. Click "Compose" to send one!</p>
+        {% else %}
+            <table>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Subject</th>
+                    <th>Body</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+                {% for email in emails %}
+                <tr>
+                    <td>{{ email[1] }}</td>
+                    <td>{{ email[2] }}</td>
+                    <td>{{ email[3] }}</td>
+                    <td>{{ email[4] }}</td>
+                    <td>{{ email[5] }}</td>
+                    <td><a href="{{ url_for('delete_email', email_id=email[0]) }}" class="delete-btn">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>
