@@ -1,4 +1,4 @@
-# Email Web Server - v2
+# Email Web Server
 
 A basic email web server built with Python, Flask, SQLite, HTML, and CSS.
 
@@ -22,7 +22,7 @@ Learn Flask + SQL + full-stack concepts in Python.
 
 ```bash
 # 1. Go to project folder
-cd email-web-server-v2
+cd email-web-server
 
 # 2. Create venv
 python3 -m venv venv
